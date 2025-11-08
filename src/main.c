@@ -5,7 +5,7 @@
 #include "systick.h"
 #include "w5500_spi.h"
 
-#define ETHERNET_INIT 0   // Set to 1 to initialize W5500 Ethernet
+#define ETHERNET_INIT 1   // Set to 1 to initialize W5500 Ethernet
 
 int main(void)
 {
@@ -22,11 +22,11 @@ int main(void)
         uart2_write_string("Init failed.\r\n");
     }
 #endif
-    // App_CreateTasks();                  // Create application tasks
-    // vTaskStartScheduler();              // Start the FreeRTOS scheduler
+    App_CreateTasks();                  // Create application tasks
+    vTaskStartScheduler();              // Start the FreeRTOS scheduler
     int count=1;
     while (1){
-        // DHCP_run();  // keep DHCP alive
+        DHCP_run();  // keep DHCP alive
         // uart2_write_string("Main loop heartbeat... ");
         // uart2_write_int(count++);
         // uart2_write_string("\r\n");

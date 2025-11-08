@@ -35,7 +35,10 @@ FREERTOS_PLUS_TCP_SRCS = $(wildcard $(FREERTOS_PLUS_TCP_DIR)/*.c)
 OBJS = \
 		$(patsubst $(SYS_DIR)/%.c,$(BUILD_DIR)/%.o,$(filter %.c,$(SYS_SRCS))) \
 		$(patsubst $(SYS_DIR)/%.s,$(BUILD_DIR)/%.o,$(filter %.s,$(SYS_SRCS))) \
-		$(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(filter %.c,$(SRCS)))
+		$(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(filter %.c,$(SRCS))) \
+		$(FREERTOS_OBJS) \
+		$(ETHERNET_OBJS) \
+		$(FREERTOS_PLUS_TCP_OBJS)
 
 
 #$(FREERTOS_OBJS) \
